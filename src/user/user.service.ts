@@ -19,6 +19,10 @@ export class UserService {
     );
   }
 
+  async findUserByEmail(email: string) {
+    return this.userRepository.findOne({ email });
+  }
+
   private async encryptPassword(password: string) {
     return await bcrypt.hash(password, 10);
   }
