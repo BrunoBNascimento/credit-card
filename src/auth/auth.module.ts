@@ -5,6 +5,7 @@ import { UserModule } from 'src/user/user.module';
 import { UserService } from 'src/user/user.service';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
+import { JWT_SECRET_OR_KEY } from './constants';
 import { JwtStrategy } from './jwt.strategy';
 
 @Module({
@@ -12,7 +13,7 @@ import { JwtStrategy } from './jwt.strategy';
     UserModule,
     PassportModule,
     JwtModule.register({
-      secret: 'abc',
+      secret: JWT_SECRET_OR_KEY,
       signOptions: { expiresIn: '3200s' }
     })
   ],
