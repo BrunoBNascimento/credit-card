@@ -6,6 +6,7 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import SolicitationStatus from './enum/solicitation-status.enum';
 
 @Entity()
 export class Solicitation {
@@ -15,8 +16,8 @@ export class Solicitation {
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: string;
 
-  @Column()
-  status: string;
+  @Column({ default: SolicitationStatus.DENIED })
+  status: SolicitationStatus;
 
   @Column()
   preferredDueDay: number;
