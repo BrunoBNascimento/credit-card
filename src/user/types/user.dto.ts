@@ -1,3 +1,5 @@
+import UserStatus from '../enum/user-status.enum';
+
 class UserDTO {
   name: string;
 
@@ -5,7 +7,7 @@ class UserDTO {
 
   email: string;
 
-  status: string;
+  status: UserStatus;
 }
 
 export default UserDTO;
