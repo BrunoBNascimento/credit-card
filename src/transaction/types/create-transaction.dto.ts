@@ -6,7 +6,6 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import CreditCard from 'src/credit-card/credit-card.entity';
 
 class CreateTransactionDTO {
   @ApiProperty({

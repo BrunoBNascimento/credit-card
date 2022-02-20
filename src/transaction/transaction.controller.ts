@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { IsPublic } from 'src/auth/is-public.decorator';
 import { TransactionService } from './transaction.service';

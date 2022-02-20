@@ -15,10 +15,10 @@ class CreditCard {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: 50 })
+  @Column({ type: 'double', default: 50 })
   limit: number;
 
-  @Column({ default: 50 })
+  @Column({ type: 'double', default: 50 })
   disponible: number;
 
   @JoinColumn()

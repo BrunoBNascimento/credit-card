@@ -20,7 +20,7 @@ class Transaction {
   @ManyToOne(() => CreditCard, (creditCard) => creditCard.transactions)
   credit_card: CreditCard;
 
-  @Column()
+  @Column({ type: 'double' })
   value: number;
 
   @Column({ default: TransactionStatus.PENDING })
