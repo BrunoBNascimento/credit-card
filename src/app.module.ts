@@ -13,6 +13,8 @@ import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { TransactionModule } from './transaction/transaction.module';
 import { StatementModule } from './statement/statement.module';
+import { BalanceService } from './balance/balance.service';
+import { BalanceModule } from './balance/balance.module';
 import CreditCard from './credit-card/credit-card.entity';
 import Transaction from './transaction/transaction.entity';
 
@@ -33,12 +35,14 @@ import Transaction from './transaction/transaction.entity';
     AuthModule,
     TransactionModule,
     StatementModule,
+    BalanceModule,
   ],
   controllers: [AppController, UserController],
   providers: [
     AppService,
     UserService,
     { provide: APP_GUARD, useClass: JwtAuthGuard },
+    BalanceService,
   ],
 })
 export class AppModule {}
