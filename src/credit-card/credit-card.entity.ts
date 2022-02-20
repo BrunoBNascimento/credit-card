@@ -1,8 +1,10 @@
+import Transaction from 'src/transaction/transaction.entity';
 import { User } from 'src/user/user.entity';
 import {
   Column,
   Entity,
   JoinColumn,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -13,10 +15,10 @@ class CreditCard {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: 50 })
+  @Column({ type: 'float', default: 50 })
   limit: number;
 
-  @Column({ default: 50 })
+  @Column({ type: 'float', default: 50 })
   disponible: number;
 
   @Column()
@@ -34,6 +36,9 @@ class CreditCard {
   @JoinColumn()
   @OneToOne(() => User)
   user: User;
+
+  @OneToMany(() => Transaction, (transaction) => transaction.credit_card)
+  transactions: Transaction[];
 }
 
 export default CreditCard;
