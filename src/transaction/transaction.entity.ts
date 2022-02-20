@@ -13,7 +13,7 @@ class Transaction {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'datetime', nullable: true })
   date: Date;
 
   @Column({ type: 'float' })
