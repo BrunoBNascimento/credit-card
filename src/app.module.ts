@@ -1,8 +1,9 @@
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
+import { ScheduleModule } from '@nestjs/schedule';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserController } from './user/user.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { CreditCardModule } from './credit-card/credit-card.module';
 import { User } from './user/user.entity';
 import { Solicitation } from './credit-card/solicitations.entity';
@@ -15,9 +16,10 @@ import { TransactionModule } from './transaction/transaction.module';
 import { StatementModule } from './statement/statement.module';
 import { BalanceService } from './balance/balance.service';
 import { BalanceModule } from './balance/balance.module';
+import { BillModule } from './bill/bill.module';
 import CreditCard from './credit-card/credit-card.entity';
 import Transaction from './transaction/transaction.entity';
-
+import Bill from './bill/bill.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -27,7 +29,7 @@ import Transaction from './transaction/transaction.entity';
       username: 'root',
       password: 'password',
       database: 'creditcard',
-      entities: [User, Solicitation, CreditCard, Transaction],
+      entities: [User, Solicitation, CreditCard, Transaction, Bill],
       synchronize: true,
     }),
     CreditCardModule,
@@ -36,6 +38,8 @@ import Transaction from './transaction/transaction.entity';
     TransactionModule,
     StatementModule,
     BalanceModule,
+    BillModule,
+    ScheduleModule.forRoot(),
   ],
   controllers: [AppController, UserController],
   providers: [

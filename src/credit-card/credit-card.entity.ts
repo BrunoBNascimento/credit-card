@@ -34,7 +34,7 @@ class CreditCard {
   cvv: string;
 
   @JoinColumn()
-  @OneToOne(() => User)
+  @OneToOne(() => User, { eager: true, cascade: true })
   user: User;
 
   @OneToMany(() => Transaction, (transaction) => transaction.credit_card)

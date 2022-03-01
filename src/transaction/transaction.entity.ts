@@ -1,4 +1,6 @@
+import Bill from 'src/bill/bill.entity';
 import CreditCard from 'src/credit-card/credit-card.entity';
+import { User } from 'src/user/user.entity';
 import {
   Column,
   Entity,
@@ -25,6 +27,14 @@ class Transaction {
   @JoinColumn()
   @ManyToOne(() => CreditCard)
   credit_card: CreditCard;
+
+  @JoinColumn()
+  @ManyToOne(() => Bill)
+  bill: Bill;
+
+  @JoinColumn()
+  @ManyToOne(() => User)
+  user: User;
 }
 
 export default Transaction;
