@@ -19,6 +19,7 @@ import { BillModule } from './bill/bill.module';
 import CreditCard from './credit-card/credit-card.entity';
 import Transaction from './transaction/transaction.entity';
 import { ScheduleModule } from '@nestjs/schedule';
+import Bill from './bill/bill.entity';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import { ScheduleModule } from '@nestjs/schedule';
       username: 'root',
       password: 'password',
       database: 'creditcard',
-      entities: [User, Solicitation, CreditCard, Transaction],
+      entities: [User, Solicitation, CreditCard, Transaction, Bill],
       synchronize: true,
     }),
     CreditCardModule,
