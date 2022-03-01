@@ -15,8 +15,10 @@ import { TransactionModule } from './transaction/transaction.module';
 import { StatementModule } from './statement/statement.module';
 import { BalanceService } from './balance/balance.service';
 import { BalanceModule } from './balance/balance.module';
+import { BillModule } from './bill/bill.module';
 import CreditCard from './credit-card/credit-card.entity';
 import Transaction from './transaction/transaction.entity';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -36,6 +38,8 @@ import Transaction from './transaction/transaction.entity';
     TransactionModule,
     StatementModule,
     BalanceModule,
+    BillModule,
+    ScheduleModule.forRoot(),
   ],
   controllers: [AppController, UserController],
   providers: [
