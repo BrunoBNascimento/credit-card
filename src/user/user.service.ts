@@ -19,6 +19,15 @@ export class UserService {
     );
   }
 
+  async getUsersWithNoBill() {
+    const query = this.userRepository
+      .createQueryBuilder('u')
+      .leftJoinAndSelect('bill', 'b', 'b.userId = u.id')
+      .where('b.id is null');
+
+    return query.getMany();
+  }
+
   async findUserByEmail(email: string) {
     return this.userRepository.findOne({ email });
   }

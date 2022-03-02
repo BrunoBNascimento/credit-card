@@ -55,6 +55,15 @@ export class CreditCardService {
     return isApproved;
   }
 
+  async getUserPreferredDueDay(user: User) {
+    const solicitation = await this.solicitationRepository.findOne({
+      user,
+      status: SolicitationStatus.APPROVED,
+    });
+
+    return solicitation.preferredDueDay;
+  }
+
   private async generateCreditCardForApprovedSolicitation(user: User) {
     const DEFAULT_BRAND = Brands.VISA;
 

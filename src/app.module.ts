@@ -19,6 +19,7 @@ import { BalanceModule } from './balance/balance.module';
 import { BillModule } from './bill/bill.module';
 import CreditCard from './credit-card/credit-card.entity';
 import Transaction from './transaction/transaction.entity';
+import Bill from './bill/bill.entity';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import Transaction from './transaction/transaction.entity';
       username: 'root',
       password: 'password',
       database: 'creditcard',
-      entities: [User, Solicitation, CreditCard, Transaction],
+      entities: [User, Solicitation, CreditCard, Transaction, Bill],
       synchronize: true,
     }),
     CreditCardModule,
